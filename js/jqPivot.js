@@ -1081,7 +1081,7 @@
                 if (cnt == max-1){
                     cellClasses = gridHeaderClassName+" "+options.rightCellClassName;
                 }
-
+                
                 $colgroup.append($("<col />").addClass(cellClasses));
                 
                 $currentColumn = $("<th>"+this._getColumnHeaderFromIndex(cnt)+"</th>");
@@ -1204,11 +1204,12 @@
                 $currentColumn;
                 		
 		    for (var i = 0; i < columnsCount; i++){	//for each column
-			    $currentColumn = columns[i]; 			
+		    	$currentColumn = columns[i]; 			
 			    dataObj.grips[i].css({			//height and position of the grip is updated according to the table layout
-				    left: $currentColumn.offset().left - table.offset().left + $currentColumn.outerWidth() + Math.floor(dataObj.cellSpacing / 2) + "px",
-				    height: table.outerHeight()				
-			    });			
+				    left: $currentColumn.offset().left - table.offset().left + $currentColumn.outerWidth(true) + Math.floor(dataObj.cellSpacing / 2) + "px",
+				    height: table.outerHeight()
+			    });	
+			   
 		    } 	
 	    },
         
@@ -1261,7 +1262,6 @@
         * @return {undefined}
         */
         _createGripsInGrid: function (){
-
             // Attach the styles
             //$("head").append("<style type='text/css'>."+PIVOT_NAMESPACE+"Grips{ height:0px; position:relative;} ."+PIVOT_NAMESPACE+"Grip{margin-left:-2px; position:absolute; z-index:5; } ."+PIVOT_NAMESPACE+"Grip ."+PIVOT_NAMESPACE+"ColResizer{position:absolute;background-color:red;opacity:0;width:10px;height:100%;top:0px} ."+PIVOT_NAMESPACE+"Table, ."+PIVOT_NAMESPACE+"InnerTable {table-layout:fixed;} ."+PIVOT_NAMESPACE+"Table td, ."+PIVOT_NAMESPACE+"Table th{overflow:hidden;padding-left:0!important; padding-right:0!important;} ."+PIVOT_NAMESPACE+"LastGrip{position:absolute; width:1px;} ."+PIVOT_NAMESPACE+"GripDrag{ margin-left:2px; border-left:1px dotted black;}</style>");
 
